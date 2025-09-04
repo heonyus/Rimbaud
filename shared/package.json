@@ -1,0 +1,9 @@
+{
+  "name": "@rimbaud/shared",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./types/messages.ts",
+  "exports": {
+    "./types/messages": "./types/messages.ts"
+  }
+}

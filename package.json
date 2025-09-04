@@ -1,0 +1,11 @@
+{
+  "name": "rimbaud",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "server",
+    "web",
+    "shared"
+  ],
+  "packageManager": "pnpm@9.0.0"
+}
