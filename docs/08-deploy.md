@@ -1,13 +1,19 @@
 # Deploy
 
 ## Frontend (Vercel)
-- Project root: `web/`
+Option A — Set Project Root to `web/` (UI)
 - Framework preset: Vite
 - Build command: `npm run build`
 - Output dir: `dist`
-- Env vars (Project Settings → Environment Variables):
-  - `VITE_WS_URL` → e.g. `wss://YOUR-SERVER/ws`
-  - `VITE_API_URL` → e.g. `https://YOUR-SERVER`
+- Env vars (Project Settings → Environment Variables): `VITE_WS_URL`, `VITE_API_URL`
+
+Option B — Keep root at repo root with `vercel.json` (monorepo)
+- vercel.json at repo root already added:
+  - `installCommand`: `npm install --workspaces`
+  - `buildCommand`: `npm run -w @rimbaud/web build`
+  - `outputDirectory`: `web/dist`
+  - `rewrites`: SPA fallback to `/index.html`
+- In this option, you can keep Vercel project root = repository root.
 
 ## Backend (WebSocket server)
 Vercel Node functions do not host stateful WebSocket servers well. Use a Node host:

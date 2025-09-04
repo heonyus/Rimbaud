@@ -1,0 +1,9 @@
+{
+  "framework": "vite",
+  "installCommand": "npm install --workspaces",
+  "buildCommand": "npm run -w @rimbaud/web build",
+  "outputDirectory": "web/dist",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
