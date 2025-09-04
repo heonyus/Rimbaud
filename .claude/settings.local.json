@@ -5,7 +5,10 @@
       "Bash(npm i:*)",
       "Bash(corepack enable)",
       "Bash(corepack prepare:*)",
-      "Bash(npx pnpm:*)"
+      "Bash(npx pnpm:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Read(//mnt/c/Users/User/Pictures/Screenshots/**)"
     ],
     "deny": [],
     "ask": []
