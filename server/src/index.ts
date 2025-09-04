@@ -2,7 +2,7 @@ import Fastify from 'fastify'
 import websocket from '@fastify/websocket'
 import cors from '@fastify/cors'
 import multipart from '@fastify/multipart'
-import { env } from './env.js'
+import { env, requireEnv } from './env.js'
 import { registerHealthRoutes } from './routes/health.js'
 import { registerSessionRoutes } from './routes/sessions.js'
 import { registerVoiceRoutes } from './routes/voices.js'
@@ -16,4 +16,5 @@ registerHealthRoutes(app)
 registerSessionRoutes(app)
 registerVoiceRoutes(app)
 
+requireEnv()
 await app.listen({ port: env.port, host: '0.0.0.0' })
