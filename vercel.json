@@ -1,7 +1,7 @@
 {
   "framework": "vite",
-  "installCommand": "npm install --workspaces",
-  "buildCommand": "npm run -w @rimbaud/web build",
+  "installCommand": "corepack enable && corepack prepare pnpm@10.0.0 --activate && pnpm -w install --frozen-lockfile",
+  "buildCommand": "pnpm -w --filter @rimbaud/web build",
   "outputDirectory": "web/dist",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }

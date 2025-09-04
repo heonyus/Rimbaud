@@ -9,8 +9,8 @@ Option A — Set Project Root to `web/` (UI)
 
 Option B — Keep root at repo root with `vercel.json` (monorepo)
 - vercel.json at repo root already added:
-  - `installCommand`: `npm install --workspaces`
-  - `buildCommand`: `npm run -w @rimbaud/web build`
+  - `installCommand`: use Corepack + pnpm@10 and run `pnpm -w install --frozen-lockfile`
+  - `buildCommand`: `pnpm -w --filter @rimbaud/web build`
   - `outputDirectory`: `web/dist`
   - `rewrites`: SPA fallback to `/index.html`
 - In this option, you can keep Vercel project root = repository root.
@@ -26,6 +26,8 @@ Steps (Railway example)
 2. Set env: `DEEPGRAM_API_KEY`, `ELEVENLABS_API_KEY`, `GOOGLE_CLOUD_API_KEY`, `PORT=8787`
 3. Expose public URL, note `https://...` and `wss://...`
 4. Update Vercel `VITE_API_URL`/`VITE_WS_URL` to point to this server.
+
+If Railway picked pnpm@9 and fails with a lockfile mismatch, ensure root `package.json` has `"packageManager": "pnpm@10.0.0"` and redeploy.
 
 ## Domain
 - Optionally map a custom domain to both Vercel and the server provider; set CORS origin allowlist on the server.

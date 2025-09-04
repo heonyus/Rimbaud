@@ -21,7 +21,8 @@ export function registerVoiceRoutes(app: FastifyInstance) {
 
     const fd = new FormData()
     fd.set('name', name)
-    const blob = new Blob([fileBuf], { type: 'audio/wav' })
+    const uint8 = new Uint8Array(fileBuf)
+    const blob = new Blob([uint8], { type: 'audio/wav' })
     fd.set('files', blob, filename)
 
     const res = await fetch('https://api.elevenlabs.io/v1/voices/add', {
